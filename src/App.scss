@@ -1,0 +1,56 @@
+$primary:  #68177b;
+$white: #ffffff;
+$black: #000000;
+$secondary: #a425c1;
+$grey: #dddddd;
+$bold-grey: #999999;
+$box-shadow-btn: rgba(56,12,74,.08);
+
+
+@mixin button {
+  padding: 15px 22px 14px;
+  border: 0 $primary;
+  border-radius: 10px;
+  box-shadow: 0 30px 25px 0 $box-shadow-btn;
+  color: $white;
+  background-color: $primary;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+    transition: all ease .3s;
+  }
+}
+
+@mixin loading ($width, $height, $borderSize) {
+    position: absolute;
+    border: $borderSize solid $grey;
+    border-top: $borderSize solid $secondary; 
+    border-radius: 50%;
+    width: $width;
+    height: $height;
+    animation: spin 2s linear infinite;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: calc(12px + 1vmin);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
