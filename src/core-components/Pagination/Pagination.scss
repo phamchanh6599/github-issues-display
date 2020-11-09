@@ -1,0 +1,14 @@
+@import "./../../App.scss";
+
+.Pagination  {
+    margin-top: 30px;
+
+    &__prev,  &__next {
+        @include button;
+        margin-left: 12px;
+    }
+
+    .prevent-click {
+      pointer-events: none;  
+    }
+}
