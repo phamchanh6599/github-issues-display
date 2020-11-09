@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState,  useCallback} from 'react';
 
 import './View.scss';
+
 import Table from './../../core-components/Table/Table'
 import Pagination from './../../core-components/Pagination/Pagination'
+import Notification from './../Notifications/Notification'
 
 import * as corePagination from './../../helpers/CoreApi/CorePagination'
 
@@ -17,7 +19,6 @@ function View() {
                 setLoading(true);
                 const data = await corePagination.fetchList(`https://api.github.com/repos/rails/rails/issues?page=${currentPage}&per_page=5`);
                 if (data.length) {
-                    console.log("data", data)
                     setList(data)
                 }
             } catch(err) {
@@ -30,18 +31,25 @@ function View() {
     }, [currentPage])
 
     // Change page
-    const paginate = pageNumber => setCurrentPage(pageNumber)
+    const paginate = useCallback(pageNumber => setCurrentPage(pageNumber) , [])
 
     return (
         <div className="View">
-            <Table listIssues={list} loading={loading} currentPage={currentPage} />
-            <Pagination 
-                paginate={paginate}
-                currentPage={currentPage}
-                loading={loading}
-            />
+            <div className="View__content"> 
+                <div className="notification"> 
+                    <Notification />
+                </div>
+                <Table listIssues={list} loading={loading} currentPage={currentPage} />
+                <Pagination 
+                    paginate={paginate}
+                    currentPage={currentPage}
+                    loading={loading}
+                />
+            </div>
         </div>
     );
 }
 
-export default View;
+export default React.memo(View);
+
+
