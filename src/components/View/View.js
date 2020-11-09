@@ -10,7 +10,6 @@ function View() {
     const [list, setList] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [issuesPerPage] = useState(5);
 
     useEffect(() => {
         const fetch = async () => {
