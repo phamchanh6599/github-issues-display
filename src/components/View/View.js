@@ -35,7 +35,7 @@ function View() {
 
     return (
         <div className="View">
-            <Table listIssues={list} loading={loading} />
+            <Table listIssues={list} loading={loading} currentPage={currentPage} />
             <Pagination 
                 paginate={paginate}
                 currentPage={currentPage}

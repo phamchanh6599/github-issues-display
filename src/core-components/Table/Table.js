@@ -1,19 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
 import './Table.scss';
 
 Table.propTypes = {
     listIssues: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired
+    loading: PropTypes.bool.isRequired,
+    currentPage: PropTypes.number.isRequired,
 }
 
-function Table({listIssues, loading}) {
+function Table({listIssues, loading, currentPage}) {
+  const [selectedItem, setItem] = useState(null)
+
+  useEffect(() => {
+    setItem(null)
+  }, [currentPage])
+
+  const handleClickItem = (idx) => {
+    setItem(idx)
+  }
+
   const renderContentTable = () => {
     return (
       listIssues.map((item, idx) => {
         return (
-          <tr key={idx} className={idx === 4 ? "active" : ""}>
+          <tr onClick={() => handleClickItem(idx)} key={idx} className={idx === selectedItem ? "active" : ""}>
             <td> {item.id} </td>
             <td> {item.title} </td>
           </tr>  
