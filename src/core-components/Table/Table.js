@@ -8,15 +8,22 @@ import * as actions from './../../redux/actions/index';
 Table.propTypes = {
     listIssues: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
-    currentPage: PropTypes.number.isRequired,
+    currentPage: PropTypes.number,
+}
+
+Table.defaultProps = {
+  listIssues: [],
+  loading: false
 }
 
 function Table(props) {
+
   const [selectedItem, setItem] = useState(null)
-  const {listIssues, loading, currentPage, listVisitedIssues, handleVisitedItem} = props;
+  const {listIssues, loading, currentPage, handleVisitedItem} = props;
   useEffect(() => {
     setItem(null)
   }, [currentPage])
+
 
   const handleClickItem = (item) => {
     if (item.id === selectedItem) setItem(null)
@@ -27,7 +34,6 @@ function Table(props) {
   }
 
   const renderContentTable = () => {
-    console.log("listVisitedIssues", listVisitedIssues)
     return (
       listIssues.map((item, idx) => {
         return (
@@ -69,4 +75,4 @@ const mapDispactchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispactchToProps)(Table);
+export default connect(mapStateToProps, mapDispactchToProps)(React.memo(Table));
