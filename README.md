@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+Technical decision:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
++ How did you implement styling? What are the pros and cons? Why did you chose this approach? 
+  I selected CSS Modules way (SASS) for this project.
+  Pros : 
+  - All class names and animation names are scoped locally- by default, each component will have its own Css files.
+  - When scaling projects, we have less overrides and trouble.
+  - By having a common css files where we can define variables, mixin or function which is using for other components, we can share it everywhere and must easier to know what’s used or not vv
+  Cons :
+  - Because each component has its own Css files so we will have many files Css
+   Because some of pros above, I decide to choose this way.
 
-## Available Scripts
++ How did you share state between components? What are the pros and cons? Why did you chose this approach?
+   Redux helps me to share state between components
+   Pros :
+   - Easy to start writing (if you can get over the syntax)
+   - Less re-rendering!
+   - Total separation of data and presentation
+   Cons :
+   - Community conventions are still developing so It hards to have a standard structure
+   - Syntax is complex for someone
+   For me, I tried others way as using context-api but Redux is covenient and I think It has much better than other way so I choose this
 
-In the project directory, you can run:
++ Did you use React hooks? Why or why not?
+   Yes, Because : 
+   - We can maintains internal state data with simplified and less code.
+   - Make the code look cleaner, easier to read
+   - Create re-usable, isolated components to avoid redundant logic.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
++ How did you prevent wasted renders?
+   I tried to use something like:
+   - React memo
+   - UseCallBack
+   to prevent wasted renders
