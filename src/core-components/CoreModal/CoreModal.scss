@@ -44,6 +44,7 @@
         transform: translate(-50%, -100%);
         transition: all 0.4s;
         visibility: visible;
+        min-height: 300px;
     }
     transition: all 0.1s;
 }
@@ -53,4 +54,5 @@
     opacity: 0;
     transition: all 0.4s;
     visibility: hidden;
+    z-index: -1;
 }
