@@ -1,3 +1,11 @@
+Installation: 
++ Please clone this repository using git clone https://github.com/phamchanh6599/github-issues-display.git first
++ $ cd github-issues-display
+  $ npm install
+
+Run : 
++ $ npm start
+
 Technical decision:
 
 + How did you implement styling? What are the pros and cons? Why did you chose this approach? 
@@ -32,3 +40,5 @@ Technical decision:
    - React memo
    - UseCallBack
    to prevent wasted renders
+
+View more details on https://github-issues-display.herokuapp.com/
